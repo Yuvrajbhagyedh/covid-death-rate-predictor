@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 # Load and train model
 @st.cache_data
 def load_and_train_model():
-    data = pd.read_csv(r'C:\Users\HP\Downloads\archive\worldometer_data.csv')
+   data = pd.read_csv('worldometer_data.csv')
     data = data.dropna(subset=['TotalCases', 'TotalDeaths', 'Population', 'TotalTests'])
     data['DeathRate'] = (data['TotalDeaths'] / data['TotalCases']) * 100
     data['HighDeathRate'] = (data['DeathRate'] > 3).astype(int)
